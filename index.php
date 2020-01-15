@@ -1,15 +1,16 @@
 <?php
+require_once('api_functions.php');
 require_once('functions.php');
 header('Content-Type: application/json');
 
 $q= $_GET['q'];
 
-$agrs = $_GET;
+$args = $_GET;
 
 
 switch($q){
     case 'user':
-        user($agrs);
+        user($args);
     break;
     case 'user-events':
         user_events($args);
@@ -37,5 +38,7 @@ switch($q){
     default:
     
         error('mauvaise route');
-    die;
+        die;
 }
+
+die;
