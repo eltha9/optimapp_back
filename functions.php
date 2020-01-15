@@ -60,7 +60,25 @@ function add_place($agrs){
 }
 
 function place_info($agrs){
+    $data=curl_place_by_id($agrs["id"]);
+
     
+    $response = [
+        "location"=>[
+            "latitude"=>$data->result->geometry->location->lat,
+            "longitude"=>$data->result->geometry->location->lng,
+        ],
+        "id"=>$data->result->id,
+        "name"=>$data->result->name,
+        "photos"=> $data->result->photos,
+        "place_id"=> $data->result->place_id,
+        "rating"=>$data->result->rating,
+        "rating_count"=>$data->result->user_ratings_total,
+        "reference"=>$data->result->reference,
+        "address"=>$data->result->vicinity
+    ];
+
+    echo json_encode($response);
 }
 
 

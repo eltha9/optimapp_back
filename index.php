@@ -23,17 +23,17 @@ switch($q){
         places($args);
     break;
     case 'add-place':
-        add_place($agrs);
+        add_place($args);
     break;
     case 'place-info':
-        place_info($agrs);
+        place_info($args);
     break;
 
     case 'journey':
-        journey($agrs);
+        journey($args);
     break;
     case 'user-places':
-        user_places($agrs);
+        user_places($args);
     break;
     default:
     

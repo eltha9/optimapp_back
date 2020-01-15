@@ -20,3 +20,28 @@ Routes for "map" view
 - ?q=add-place
 
 - ?q=place-info
+    &id= `place_id`
+
+
+Routes for "voyage" view
+
+- ?q=journey
+    
+
+- ?q=user-places
+
+
+
+##Configuration file
+You need to create a file `conig.ini` into the root project directory, whithe this structure :
+
+[api-key]
+google-places = `google api places key`
+navitia = `navitia api key`
+
+[bdd]
+host= `database host`
+name= `database name`
+port= `database port`
+login= `database login`
+psw= `database password`
