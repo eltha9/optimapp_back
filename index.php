@@ -15,12 +15,12 @@ switch($q){
     case 'user-events':
         user_events($args);
     break;
-    case 'events':
-        events($args);
-    break;
+    // case 'events':
+    //     events($args);
+    // break;
 
     case 'places':
-        places($agrs);
+        places($args);
     break;
     case 'add-place':
         add_place($agrs);
