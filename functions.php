@@ -66,17 +66,19 @@ function add_place($agrs, $pdo){
     $data = json_decode($data_sql->data);
 
     if(!is_array($data)){
+
         $plop = [$data];
         array_push($plop, json_decode($content));
-        // echo json_encode($plop);
+
 
         $push = $pdo->prepare('update main_data set data=:data where id=:id');
 
         $push->bindValue(':data',json_encode($plop));
         $push->bindValue(':id',$id);
         $push_result=$push->execute();
+
     }else{
-        // echo $data_sql;
+
         array_push($data, json_decode($content));
 
 
@@ -88,7 +90,7 @@ function add_place($agrs, $pdo){
         $push->bindValue(':id',$id);
         $push_result=$push->execute();
     }
-    // echo json_encode($data);
+
     
 
 
@@ -123,6 +125,9 @@ function journey($agrs){
     
 }
 
-function user_places($agrs){
-    
+function user_places($agrs,$pdo){
+    $id = $agrs['id'];
+    $data = $pdo->query('select data from main_data where id='.$id)->fetch();
+
+    echo $data->data;
 }

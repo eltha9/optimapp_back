@@ -18,6 +18,8 @@ Routes for "map" view
     &lgn= `longitude` 4 decimal float
 
 - ?q=add-place
+    &id= `user id`
+    $json= `json who provide data about the place`
 
 - ?q=place-info
     &id= `place_id`
@@ -26,10 +28,10 @@ Routes for "map" view
 Routes for "voyage" view
 
 - ?q=journey
-    
+    &id= `user id`
 
 - ?q=user-places
-
+    &id= `user id`
 
 
 ##Configuration file
