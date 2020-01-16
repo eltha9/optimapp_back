@@ -2,7 +2,7 @@
 $api = parse_ini_file('./config.ini', true);
 
 define("GOOGLE_API",$api['api-key']['google-places']);
-define("navitia_API",$api['api-key']['navitia']);
+define("NAVITIA_API",$api['api-key']['navitia']);
 //$curl = curl_init();
 // curl_setopt($curl, CURLOPT_URL, link');
 // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -39,4 +39,20 @@ function curl_place_by_id($id){
     curl_close($curl);
 
     return json_decode($result);
+}
+
+function curl_journey(){//https://api.navitia.io/v1/coverage/fr-idf/journeys?from=2.419926%3B48.846453&to=2.512540%3B48.891560&
+
+    $url = "https://api.navitia.io/v1/coverage/fr-idf/journeys?from=2.419926%3B48.846453&to=2.512540%3B48.891560&";
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_USERPWD, NAVITIA_API . ":". " ");
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+    $result = curl_exec($curl);
+    // echo curl_error($curl);
+    curl_close($curl);
+
+    echo $result;
 }

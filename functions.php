@@ -121,7 +121,8 @@ function place_info($agrs){
 
 
 //voyage function
-function journey($agrs){
+function journey($agrs){ 
+    curl_journey();
     
 }
 
