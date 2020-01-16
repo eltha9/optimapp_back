@@ -1,4 +1,6 @@
 {
     "name": "Thea",
-    "avatar": "link"
+    "avatar": "link",
+    "countries": 3,
+    "distance": 456000
 }
