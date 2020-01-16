@@ -1,4 +1,5 @@
 <?php
+require_once('bdd.php');
 require_once('api_functions.php');
 require_once('functions.php');
 header('Content-Type: application/json');
@@ -23,7 +24,7 @@ switch($q){
         places($args);
     break;
     case 'add-place':
-        add_place($args);
+        add_place($args,$pdo);
     break;
     case 'place-info':
         place_info($args);
