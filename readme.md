@@ -37,7 +37,7 @@ Routes for "voyage" view
 ## Configuration file
 You need to create a file `conig.ini` into the root project directory, whithe this structure :
 
-`
+
 [api-key]
 
 google-places = `google api places key`
@@ -47,8 +47,11 @@ navitia = `navitia api key`
 [bdd]
 
 host= `database host`
+
 name= `database name`
+
 port= `database port`
+
 login= `database login`
+
 psw= `database password`
-`
