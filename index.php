@@ -31,7 +31,7 @@ switch($q){
     break;
 
     case 'journey':
-        journey($args);
+        journey($args, $pdo);
     break;
     case 'user-places':
         user_places($args, $pdo);

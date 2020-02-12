@@ -19,7 +19,7 @@ Routes for "map" view
 
 - ?q=add-place
     - &id= `user id`
-    - $json= `json who provide data about the place`
+    - &json= `json who provide data about the place`
 
 - ?q=place-info
     - &id= `place_id`

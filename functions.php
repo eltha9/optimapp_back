@@ -30,7 +30,7 @@ function places($args){
     ];
     $data = curl_places($type_places[$args["type"]],$args["lnt"],$args["lng"]);
     
-    $response = [];
+    $response = ["result"=>[]];
 
     foreach($data->results as $item){
         $temp = [
@@ -48,7 +48,7 @@ function places($args){
             "address"=>$item->vicinity
         ];
 
-        array_push($response, $temp);
+        array_push($response["result"], $temp);
     }
 
     echo json_encode($response);
@@ -121,7 +121,12 @@ function place_info($agrs){
 
 
 //voyage function
-function journey($agrs){ 
+function journey($agrs,$pdo){
+    $id = $agrs['id'];
+
+    $places = $pdo->query('SELECT * from main_data where id='.$id)->fetch();
+    make_journey($places);
+
     curl_journey();
     
 }
@@ -132,3 +137,41 @@ function user_places($agrs,$pdo){
 
     echo $data->data;
 }
+
+
+// sub-fucntion
+
+function make_journey($places){
+    $route = array();
+
+    return $route;
+}
+
+function haversine_distance($pt1 = array(),$pt2 = array() ){
+    $earth_radius = 6371;
+
+    $dlat = ($pt1['lnt']-$pt2['lnt'])* pi()/180;
+    $dlat = ($pt1['lng']-$pt2['lng'])* pi()/180;
+
+    // $a = 
+    // $c =
+}
+
+/*
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = deg2rad(lon2-lon1); 
+    var a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ; 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; // Distance in km
+    return d;
+  }
+  
+  function deg2rad(deg) {
+    return deg * (Math.PI/180)
+  }*/
